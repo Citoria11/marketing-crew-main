@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dusk text-parchment font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-5 py-2.5 rounded-md bg-haystack text-dusk font-semibold
+           hover:bg-haystack-light active:bg-haystack-dark
+           transition-colors duration-150 shadow-glow-sm
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 rounded-md border border-saddle text-parchment
+           hover:bg-saddle/30 active:bg-saddle/50
+           transition-colors duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .card {
+    @apply bg-dusk-light border border-saddle/40 rounded-xl p-5 shadow-lg;
+  }
+
+  .input-field {
+    @apply w-full bg-dusk-light border border-saddle/60 rounded-md px-3 py-2
+           text-parchment placeholder-parchment/40 focus:outline-none
+           focus:ring-2 focus:ring-haystack/60 transition;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-pending    { @apply badge bg-saddle/30 text-haystack-light; }
+  .badge-running    { @apply badge bg-pine/50 text-green-300; }
+  .badge-waiting    { @apply badge bg-ember/30 text-red-300 animate-pulse-amber; }
+  .badge-done       { @apply badge bg-pine/70 text-green-200; }
+  .badge-error      { @apply badge bg-ember/60 text-red-200; }
+}

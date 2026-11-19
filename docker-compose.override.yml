@@ -1,0 +1,16 @@
+# docker-compose.override.yml — auto-merged by `docker compose up` for local dev.
+# For production, run: docker compose -f docker-compose.yml up --build
+
+services:
+  backend:
+    volumes:
+      - uploads:/app/uploads
+
+  frontend:
+    build:
+      target: dev
+    environment:
+      # Tells vite.config.ts to proxy API requests to the backend service name
+      VITE_API_BASE: http://backend:8080
+    ports:
+      - "3001:3000"
